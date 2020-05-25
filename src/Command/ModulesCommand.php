@@ -18,9 +18,10 @@ abstract class ModulesCommand extends AbstractCleanupCommand
         $this->setName('cleanup:modules')->setDescription('Finds and cleans unused modules. Be careful while using!');
     }
 
-    protected function cleanup() {
+    protected function cleanup()
+    {
         $modules = $this->databaseUtil->findResultsBy('tl_module', [], [], [
-            'order' => 'id ASC'
+            'order' => 'id ASC',
         ]);
 
         if ($modules->numRows < 1) {

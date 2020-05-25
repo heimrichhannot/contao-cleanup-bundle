@@ -10,7 +10,6 @@ namespace HeimrichHannot\CleanupBundle\Command;
 
 use Contao\CoreBundle\Command\AbstractLockedCommand;
 use Contao\CoreBundle\Framework\ContaoFramework;
-use Contao\Database;
 use HeimrichHannot\UtilsBundle\Database\DatabaseUtil;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -52,8 +51,8 @@ abstract class AbstractCleanupCommand extends AbstractLockedCommand
      */
     protected function executeLocked(InputInterface $input, OutputInterface $output)
     {
-        $this->io      = new SymfonyStyle($input, $output);
-        $this->input   = new $input;
+        $this->io = new SymfonyStyle($input, $output);
+        $this->input = new $input();
         $this->rootDir = $this->getContainer()->getParameter('kernel.project_dir');
 
         $this->framework->initialize();

@@ -2,5 +2,7 @@ services:
   _defaults:
     public: true
     autowire: true
+    autoconfigure: true
 
-HeimrichHannot\CleanupBundle\Command\ModulesCommand: ~
+  HeimrichHannot\CleanupBundle\Command\:
+    resource: '../../Command/*'
